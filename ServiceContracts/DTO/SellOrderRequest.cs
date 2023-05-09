@@ -10,18 +10,18 @@ namespace ServiceContracts.DTO
 {
     public class SellOrderRequest : IValidatableObject
     {
-        [Required]
-        public string? StockSymbol { get; set; }
+        [Required(ErrorMessage = "Stock Symbol can't be null or empty")]
+        public string StockSymbol { get; set; }
 
-        [Required]
-        public string? StockName { get; set; }
+        [Required(ErrorMessage = "Stock Name can't be null or empty")]
+        public string StockName { get; set; }
 
         public DateTime DateAndTimeOfOrder { get; set; }
 
-        [Range(1, 100000)]
+        [Range(1, 100000, ErrorMessage = "You can sell maximum of 100000 shares in single order. Minimum is 1.")]
         public uint Quantity { get; set; }
 
-        [Range(1, 100000)]
+        [Range(1, 100000, ErrorMessage = "The maximum price of stock is 10000. Minimum is 1.")]
         public double Price { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

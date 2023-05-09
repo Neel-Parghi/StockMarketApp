@@ -20,9 +20,39 @@
                             Stocks
                         </h1>
                     </div>
-                </div>
 
+                    <div class="flex-1 pr" id="search-box-div">
+                        <input type="search" class="search-text" name="SearchText" placeholder="Search Stocks"/>
+                    
+                    
+                    <i class="fa-solid fa-gear"></i>
+
+                        <button class="button button-blue-back ml login-button">Login</button>
+                    </div>
+                </div>
             </div>
+
+            <div class="navbar mb">
+            <ul>
+                @if (ViewBag.CurrentUrl == "~/Trade/Index")
+                {
+                    <li><a href="~/Trade/Index" class="nav-active">Trade</a></li>
+                }
+                else
+                {
+                    <li><a href="~/Trade/Index">Trade</a></li>
+                }
+
+                @if (ViewBag.CurrentUrl == "~/Trade/Orders")
+                {
+                    <li><a href="~/Trade/Orders" class="nav-active">Orders</a></li>
+                }
+                else
+                {
+                    <li><a href="~/Trade/Orders">Orders</a></li>
+                }
+            </ul>
+        </div>
 
             @RenderBody()
         </div>

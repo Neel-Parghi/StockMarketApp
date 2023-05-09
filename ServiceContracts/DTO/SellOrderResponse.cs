@@ -22,6 +22,18 @@ namespace ServiceContracts.DTO
         public double Price { get; set; }
 
         public double TradeAmount { get; set; }
+        public override bool Equals(object? obj)
+        {
+            if (obj == null) return false;
+            if (obj is not SellOrderResponse) return false;
+
+            SellOrderResponse other = (SellOrderResponse)obj;
+            return SellOrderID == other.SellOrderID && StockSymbol == other.StockSymbol && StockName == other.StockName && DateAndTimeOfOrder == other.DateAndTimeOfOrder && Quantity == other.Quantity && Price == other.Price;
+        }
+        public override string ToString()
+        {
+            return $"Sell Order ID: {SellOrderID}, Stock Symbol: {StockSymbol}, Stock Name: {StockName}, Date and Time of Sell Order: {DateAndTimeOfOrder.ToString("dd MMM yyyy hh:mm ss tt")}, Quantity: {Quantity}, Sell Price: {Price}, Trade Amount: {TradeAmount}";
+        }
     }
 
     public static class SellOrderExtensions
