@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ServiceContracts.DTO
 {
-    public class SellOrderResponse
+    public class SellOrderResponse : IOrderResponse
     {
         public Guid SellOrderID { get; set; }
 
@@ -22,6 +22,8 @@ namespace ServiceContracts.DTO
         public double Price { get; set; }
 
         public double TradeAmount { get; set; }
+
+        public OrderType TypeOfOrder => OrderType.SellOrder;
         public override bool Equals(object? obj)
         {
             if (obj == null) return false;

@@ -14,25 +14,25 @@ namespace ServiceContracts
         /// </summary>
         /// <param name="BuyOrderRequest"></param>
         /// <returns></returns>
-        BuyOrderResponse CreateBuyOrder(BuyOrderRequest? buyOrderRequest);
+        Task<BuyOrderResponse> CreateBuyOrder(BuyOrderRequest? buyOrderRequest);
 
         /// <summary>
         ///  Inserts a new sell order into the database table called 'SellOrders'
         /// </summary>
         /// <param name="sellOrderRequest"></param>
         /// <returns></returns>
-        SellOrderResponse CreateSellOrder(SellOrderRequest? sellOrderRequest);
+        Task<SellOrderResponse> CreateSellOrder(SellOrderRequest? sellOrderRequest);
 
         /// <summary>
         /// Returns the existing list of buy orders retrieved from database table called 'BuyOrders'
         /// </summary>
         /// <returns></returns>
-        List<BuyOrderResponse> GetBuyOrders();
+        Task<List<BuyOrderResponse>> GetBuyOrders();
 
         /// <summary>
         /// Returns the existing list of sell orders retrieved from database table called 'SellOrders'
         /// </summary>
         /// <returns></returns>
-        List<SellOrderResponse> GetSellOrders();
+        Task<List<SellOrderResponse>> GetSellOrders();
     }
 }

@@ -20,7 +20,7 @@ namespace Services
             _configuration = configuration;
         }
 
-        public Dictionary<string, object>? GetCompanyProfile(string stockSymbol)
+        public async Task<Dictionary<string, object>?> GetCompanyProfile(string stockSymbol)
         {
             // Create Http Client
             HttpClient httpClient = _httpClientFactory.CreateClient();
@@ -50,7 +50,7 @@ namespace Services
             return responseDictionary;
         }
 
-        public Dictionary<string, object>? GetStockPriceQuote(string stockSymbol)
+        public async Task<Dictionary<string, object>?> GetStockPriceQuote(string stockSymbol)
         {
             // Create Client
             HttpClient httpClient = _httpClientFactory.CreateClient();

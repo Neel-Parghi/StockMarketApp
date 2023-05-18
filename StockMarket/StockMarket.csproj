@@ -16,4 +16,13 @@
 		<Folder Include="wwwroot\Scripts\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Rotativa.AspNetCore" Version="1.2.0" />
+	</ItemGroup>
+
 </Project>

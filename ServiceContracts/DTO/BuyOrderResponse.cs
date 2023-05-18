@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ServiceContracts.DTO
 {
-    public class BuyOrderResponse
+    public class BuyOrderResponse : IOrderResponse
     {
         public Guid BuyOrderID { get; set; }
 
@@ -23,6 +23,13 @@ namespace ServiceContracts.DTO
         public double Price { get; set; }
 
         public double TradeAmount { get; set;}
+
+        public OrderType TypeOfOrder => OrderType.BuyOrder;
+
+        public override int GetHashCode()
+        {
+            return StockSymbol.GetHashCode();
+        }
 
         public override bool Equals(object? obj)
         {
